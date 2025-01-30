@@ -1,5 +1,5 @@
 [package]
-name = "corex"
+name = "corex-api"
 version = "0.1.0"
 edition = "2021"
 description = "A lightweight,modular API framework for building extensible systems in Rust."
@@ -10,7 +10,7 @@ keywords = ["api", "framework", "extensible", "modular"]
 categories = ["web-programming", "api-bindings"]
 
 [lib]
-name = "corex"
+name = "corex_api"
 path = "src/lib.rs"
 
 [dependencies]
