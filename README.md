@@ -15,11 +15,11 @@
 
 ## Installation
 
-Add `corex` to your `Cargo.toml`:
+Add `corex-api` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-corex = "0.1.0"
+corex-api = "0.1.0"
 ```
 
 ---
@@ -33,7 +33,7 @@ Create an extension by implementing the `ExtensionTrait`:
 ```rust
 use axum::{Router, routing::get, response::Json};
 use serde_json::json;
-use corex_core::{Core, ExtensionTrait};
+use corex_api::{CoreX, ExtensionTrait};
 use std::sync::Arc;
 
 struct AuthExtension;
@@ -51,12 +51,12 @@ impl ExtensionTrait for AuthExtension {
 
 ### 2. Register Extensions and Run the Server
 
-Use the `Core` system to register extensions and start the server:
+Use the `CoreX` system to register extensions and start the server:
 
 ```rust
 #[tokio::main]
 async fn main() {
-    let mut core = Core::new("127.0.0.1".to_string(), 3000);
+    let mut core = CoreX::new("127.0.0.1".to_string(), 3000);
     core.register_extension(Arc::new(AuthExtension));
     core.run().await;
 }
@@ -117,7 +117,7 @@ curl http://localhost:3000/example
 
 ## API Documentation
 
-### `Core`
+### `CoreX`
 
 - **`new(host: String, port: u16)`**: Creates a new Core system.
 - **`register_extension(extension: Arc<dyn ExtensionTrait>)`**: Registers an extension.
