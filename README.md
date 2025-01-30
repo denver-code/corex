@@ -115,6 +115,34 @@ curl http://localhost:3000/example
 
 ---
 
+## Example: Remote Extension  
+You can import extensions from github repositories:
+
+```toml
+[dependencies]
+auth-extension = { git = "https://github.com/denver-code/auth-extension" }
+```
+
+And register the extension in your main file as usual:
+
+```rust
+use auth_extension::AuthExtension;
+use corex::CoreX;
+use std::sync::Arc;
+
+#[tokio::main]
+async fn main() {
+    let host = "0.0.0.0".to_string();
+    let port = 3000;
+    let mut core = CoreX::new(host, port);
+
+    core.register_extension(Arc::new(AuthExtension));
+
+    core.run().await;
+}
+
+```
+
 ## API Documentation
 
 ### `CoreX`
