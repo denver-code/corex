@@ -1,0 +1,19 @@
+[package]
+name = "corex"
+version = "0.1.0"
+edition = "2021"
+description = "A lightweight,modular API framework for building extensible systems in Rust."
+license = "MIT"
+repository = "https://github.com/denver-code/corex"
+documentation = "https://docs.rs/corex-core"
+keywords = ["api", "framework", "extensible", "modular"]
+categories = ["web-programming", "api-bindings"]
+
+[lib]
+name = "corex"
+path = "src/lib.rs"
+
+[dependencies]
+axum = "0.8.1"
+tokio = { version = "1", features = ["full"] }
+serde_json = "1.0"
